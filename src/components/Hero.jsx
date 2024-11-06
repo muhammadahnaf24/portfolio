@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import PropTypes from "prop-types";
 
-const Hero = ({ scrollToAbout }) => {
+const Hero = ({ onNavigate }) => {
   return (
     <section className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 flex items-center">
       <div className="max-w-7xl mx-auto px-4 py-20 w-full">
@@ -42,6 +42,7 @@ const Hero = ({ scrollToAbout }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              onClick={() => onNavigate("projects")}
             >
               View Projects
             </motion.button>
@@ -49,6 +50,7 @@ const Hero = ({ scrollToAbout }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white px-8 py-3 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+              onClick={() => onNavigate("contact")}
             >
               Contact Me
             </motion.button>
@@ -64,7 +66,7 @@ const Hero = ({ scrollToAbout }) => {
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
               className="text-gray-400 cursor-pointer"
-              onClick={scrollToAbout} // Add onClick event
+              onClick={() => onNavigate("about")}
             >
               <ArrowDown size={32} />
             </motion.div>
@@ -76,7 +78,7 @@ const Hero = ({ scrollToAbout }) => {
 };
 
 Hero.propTypes = {
-  scrollToAbout: PropTypes.func.isRequired,
+  onNavigate: PropTypes.func.isRequired,
 };
 
 export default Hero;

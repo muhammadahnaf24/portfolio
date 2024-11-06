@@ -8,17 +8,17 @@ import Footer from "./components/Footer";
 
 const App = () => {
   // Create refs for each section
+  const heroRef = useRef(null);
   const aboutRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
-  const heroRef = useRef(null);
 
   // Store refs in an object
   const sectionRefs = {
+    hero: heroRef,
     about: aboutRef,
     projects: projectsRef,
     contact: contactRef,
-    hero: heroRef,
   };
 
   // General scroll function for any section
@@ -38,11 +38,10 @@ const App = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <Navbar onNavigate={scrollToSection} />
-      <section ref={heroRef} id="hero">
-        {" "}
-        <Hero scrollToAbout={() => scrollToSection("about")} />
-      </section>
 
+      <section ref={heroRef} id="hero">
+        <Hero onNavigate={scrollToSection} />
+      </section>
       <section ref={aboutRef} id="about">
         <About />
       </section>
