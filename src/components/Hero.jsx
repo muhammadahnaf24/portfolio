@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import PropTypes from "prop-types";
+import logo from "../assets/logoA.webp";
 
 const Hero = ({ onNavigate }) => {
   return (
@@ -11,8 +12,9 @@ const Hero = ({ onNavigate }) => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-4"
+            className="space-y-4 flex flex-col items-center"
           >
+            <img src={logo} alt="logo" className="w-48 h-48" />
             <h1 className="text-6xl font-bold text-gray-900 dark:text-white">
               Hi, Im{" "}
               <span className="text-blue-600 dark:text-blue-400">Ahnaf</span>
