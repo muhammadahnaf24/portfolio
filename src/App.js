@@ -7,19 +7,21 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 const App = () => {
-  // Membuat refs untuk semua section
+  // Create refs for each section
   const aboutRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
+  const heroRef = useRef(null);
 
-  // Object untuk menyimpan semua refs
+  // Store refs in an object
   const sectionRefs = {
     about: aboutRef,
     projects: projectsRef,
     contact: contactRef,
+    hero: heroRef,
   };
 
-  // Fungsi scroll yang akan diteruskan ke Navbar
+  // General scroll function for any section
   const scrollToSection = (sectionId) => {
     const ref = sectionRefs[sectionId];
     if (ref?.current) {
@@ -33,15 +35,14 @@ const App = () => {
     }
   };
 
-  // Fungsi scroll untuk Hero section
-  const scrollToAbout = () => {
-    scrollToSection("about");
-  };
-
   return (
     <div className="min-h-screen bg-gray-100">
       <Navbar onNavigate={scrollToSection} />
-      <Hero scrollToAbout={scrollToAbout} />
+      <section ref={heroRef} id="hero">
+        {" "}
+        <Hero scrollToAbout={() => scrollToSection("about")} />
+      </section>
+
       <section ref={aboutRef} id="about">
         <About />
       </section>
@@ -51,6 +52,7 @@ const App = () => {
       <section ref={contactRef} id="contact">
         <Contact />
       </section>
+
       <Footer />
     </div>
   );

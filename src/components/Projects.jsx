@@ -1,37 +1,61 @@
 // src/components/Projects.jsx
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
-import todoImage from "../assets/todolist.webp";
+import taskImage from "../assets/task-management.webp";
+import chatbotImage from "../assets/chatbot.webp";
+import financeTrackerImage from "../assets/finance-tracker.webp";
+import recipeImage from "../assets/recipe.webp";
+import dashboardImage from "../assets/ecommerce-dashboard.webp";
 
 const Projects = () => {
   const projects = [
     {
-      title: "Todolist App",
-      description:
-        "A  simple todo list app built with React and Redux. Allows users to add, remove and edit tasks.",
-      image: todoImage,
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
-      github: "https://github.com/muhammadahnaf24/todolist-app",
-      demo: "https://todolist-app-dun-seven.vercel.app/",
-      stars: 45,
-    },
-    {
       title: "Task Management App",
       description: "Collaborative task management with real-time updates",
-      image: "/api/placeholder/800/600",
+      image: taskImage,
       technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-      github: "https://github.com/yourusername/taskmanager",
+      github: "https://github.com/muhammadahnaf24",
       demo: "https://demo-tasks.com",
       stars: 32,
     },
     {
       title: "AI Chat Application",
       description: "Real-time chat application with AI-powered responses",
-      image: "/api/placeholder/800/600",
+      image: chatbotImage,
       technologies: ["React", "Python", "TensorFlow", "WebSocket"],
-      github: "https://github.com/yourusername/aichat",
+      github: "https://github.com/muhammadahnaf24",
       demo: "https://demo-aichat.com",
       stars: 78,
+    },
+    {
+      title: "Personal Finance Tracker",
+      description:
+        "An app for managing income and expenses with data visualization, monthly reports, and categorized spending.",
+      image: financeTrackerImage,
+      technologies: ["React", "NodeJs", "MongoDB", "Chart.js"],
+      github: "https://github.com/muhammadahnaf24",
+      demo: "https://demo-aichat.com",
+      stars: 90,
+    },
+    {
+      title: "Recipe Sharing Platform",
+      description:
+        "A recipe-sharing app that allows users to search, share, and rate recipes.s",
+      image: recipeImage,
+      technologies: ["React", "Firebase", "Tailwind CSS"],
+      github: "https://github.com/muhammadahnaf24",
+      demo: "https://demo-aichat.com",
+      stars: 50,
+    },
+    {
+      title: "E-Commerce Dashboard",
+      description:
+        "An online store management dashboard that tracks inventory, orders, and sales analysis.",
+      image: dashboardImage,
+      technologies: ["React", "Express", "PostgreSQL"],
+      github: "https://github.com/muhammadahnaf24",
+      demo: "https://demo-aichat.com",
+      stars: 74,
     },
   ];
 

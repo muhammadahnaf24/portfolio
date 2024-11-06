@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-
 const Navbar = ({ onNavigate }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,13 +13,6 @@ const Navbar = ({ onNavigate }) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const handleMobileNavigation = (sectionId) => {
-    setTimeout(() => {
-      setIsMobileMenuOpen(false);
-    }, 100);
-    onNavigate(sectionId);
-  };
 
   const navItems = [
     { name: "about", label: "About" },
@@ -45,12 +37,22 @@ const Navbar = ({ onNavigate }) => {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center space-x-2"
           >
-            <span className="w-8 h-8 bg-blue-600 dark:bg-blue-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">A</span>
-            </span>
-            <h1 className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
-              Muhammad Ahnaf
-            </h1>
+            <motion.button
+              initial={{ opacity: 0, y: -20 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { delay: 0.1 },
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => onNavigate("hero")}
+              className="relative text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors duration-200"
+            >
+              <h1 className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+                Muhammad Ahnaf
+              </h1>
+            </motion.button>
           </motion.div>
 
           {/* Desktop Menu */}
@@ -107,7 +109,7 @@ const Navbar = ({ onNavigate }) => {
               <motion.button
                 key={item.name}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => handleMobileNavigation(item.name)}
+                onClick={() => onNavigate(item.name)}
                 className="w-full text-left text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
               >
                 {item.label}
